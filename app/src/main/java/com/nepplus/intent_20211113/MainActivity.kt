@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
 
 //    멤버변수
     val REQ_FOR_NICKNAME = 1000
+    val REQ_FOR_EMAIL = 1001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
