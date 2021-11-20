@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_view_message.*
 
 class MainActivity : AppCompatActivity() {
 
-//    멤버변수
+    //    멤버변수
     val REQ_FOR_NICKNAME = 1000
     val REQ_FOR_EMAIL = 1001
 
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
 //            그 전화번호에 실제 전화 연결 ( CALL )
             val myUri = Uri.parse("tel:${inputPhoneNum}")
-            val myIntent = Intent( Intent.ACTION_CALL, myUri )
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
             startActivity(myIntent)
         }
 
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
 //            그 전화번호에 실제 전화 연결 ( Dial )
             val myUri = Uri.parse("tel:${inputPhoneNum}")
-            val myIntent = Intent( Intent.ACTION_DIAL, myUri )
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
             startActivity(myIntent)
 
         }
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
 //            OtherActivity 화면으로 이동하기
 
-            val myIntent = Intent( this, OtherActivity::class.java )
+            val myIntent = Intent(this, OtherActivity::class.java)
             startActivity(myIntent)
         }
 
@@ -85,7 +85,6 @@ class MainActivity : AppCompatActivity() {
             myIntent.putExtra("message", inputMessage)
 
 
-
         }
 
         btnEditNickname.setOnClickListener {
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 //            닉네임을 받기 위한 왕복이다라고, 왜 가는건지 구별
 //            구별에 사용하는 수자 ->  REQUEST_CODE 라고 부름
 
-            startActivityForResult(myIntent, REQ_FOR_NICKNAME )
+            startActivityForResult(myIntent, REQ_FOR_NICKNAME)
 
         }
 
@@ -103,7 +102,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 //        requestCode : 어떤 것을 가지러 다녀온건지 알려주는 숫자가 기록됨
-        if (requestCode == REQ_FOR_NICKNAME){
+        if (requestCode == REQ_FOR_NICKNAME) {
 //            닉네임을 가지러 다녀왔을때 실행됨
 
 //            resultCode : 확인 (OK) / 취소 (cancel) 중 어떤것을 눌렀는지 알려줌.
@@ -117,11 +116,10 @@ class MainActivity : AppCompatActivity() {
                 val newNickname = data?.getStringExtra("nick")
 
                 txtNickname.text = newNickname
-    }
-
-
-
             }
+
+
         }
     }
+
 }
